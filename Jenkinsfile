@@ -10,14 +10,12 @@ podTemplate(containers: [
     node(POD_LABEL) {
         stage('Get a Maven project') {
             container('maven') {
-                stage('Build') {
-                    steps {
-                        sh'''
+                stage('Build a Maven project') {
+                    sh '''
                             ls
                             pwd
                             mvn -B -DskipTests clean package
-                        '''
-                    }
+                    '''
                 }
             }
         }
